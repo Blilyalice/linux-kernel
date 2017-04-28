@@ -328,6 +328,8 @@
 	wireless-bluetooth {
 		compatible = "bluetooth-platdata";
 		//wifi-bt-power-toggle;
+		clocks = <&rk808 1>;
+                clock-names = "ext_clock";
 		uart_rts_gpios = <&gpio2 19 GPIO_ACTIVE_LOW>; /* GPIO2_C3 */
 		pinctrl-names = "default", "rts_gpio";
 		pinctrl-0 = <&uart0_rts>;
