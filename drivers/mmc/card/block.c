@@ -2886,9 +2886,9 @@ static int mmc_blk_probe(struct mmc_card *card)
 		if (mmc_add_disk(part_md))
 			goto out;
 	}
-
+	#ifdef CONFIG_ARM64
 	mmc_blk_emmc_add(card);
-
+	#endif 
 	pm_runtime_set_autosuspend_delay(&card->dev, 3000);
 	pm_runtime_use_autosuspend(&card->dev);
 
@@ -2917,7 +2917,9 @@ static void mmc_blk_remove(struct mmc_card *card)
 	if (card->host->restrict_caps & RESTRICT_CARD_TYPE_EMMC)
 		this_card = NULL;
 #endif
+	#ifdef CONFIG_ARM64
 	mmc_blk_emmc_remove(card);
+	#endif
 
 	mmc_blk_remove_parts(card, md);
 	pm_runtime_get_sync(&card->dev);
@@ -2947,7 +2949,9 @@ static int _mmc_blk_suspend(struct mmc_card *card)
 
 static void mmc_blk_shutdown(struct mmc_card *card)
 {
+	#ifdef CONFIG_ARM64
 	mmc_blk_emmc_remove(card);
+	#endif
 	_mmc_blk_suspend(card);
 }
 
