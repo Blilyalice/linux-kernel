@@ -5,9 +5,9 @@
 //#define SCREEN_MAX_X 		1366
 //#define SCREEN_MAX_Y 		768
 
-static int revert_xy = 0;
+static int revert_xy = 1;
 static int revert_x = 0;
-static int revert_y = 0;
+static int revert_y = 1;
 
  
 struct fw_data

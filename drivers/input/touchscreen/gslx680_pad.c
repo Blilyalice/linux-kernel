@@ -969,8 +969,8 @@ static int  gsl_ts_probe(struct i2c_client *client,
     ts->device_id = id->driver_data;
 
 
-    of_property_read_u32(np,"screen_max_x",&(ts->screen_max_x));
-    of_property_read_u32(np,"screen_max_y",&(ts->screen_max_y));
+    of_property_read_u32(np,"screen_max_y",&(ts->screen_max_x));
+    of_property_read_u32(np,"screen_max_x",&(ts->screen_max_y));
 
     dev_info(&ts->client->dev, "[tp-gsl] screen_max_x =[%d] \n",ts->screen_max_x);
     dev_info(&ts->client->dev, "[tp-gsl] screen_max_y =[%d] \n",ts->screen_max_y);
