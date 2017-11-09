@@ -286,7 +286,7 @@
 		pwms = <&pwm2 0 25000 1>;
 		regulator-name = "vdd_log";
 		regulator-min-microvolt = <800000>;
-		regulator-max-microvolt = <1400000>;
+		regulator-max-microvolt = <1100000>;
 		regulator-always-on;
 		regulator-boot-on;
 
@@ -695,8 +695,8 @@
 
 &i2c4 {
 	status = "okay";
-	i2c-scl-rising-time-ns = <475>;
-	i2c-scl-falling-time-ns = <26>;
+	i2c-scl-rising-time-ns = <600>;
+	i2c-scl-falling-time-ns = <20>;
 
 	fusb0: fusb30x@22 {
 		compatible = "fairchild,fusb302";
@@ -704,7 +704,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&fusb0_int>;
 		int-n-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
-		vbus-5v-gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
+		vbus-5v-gpios = <&gpio2 0 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
 
@@ -1032,6 +1032,12 @@
 };
 
 &uart2 {
+	status = "okay";
+};
+
+&uart4 {
+	current-speed = <9600>;
+	no-loopback-test;
 	status = "okay";
 };
 
